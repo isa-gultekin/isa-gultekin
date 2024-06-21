@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesli yazı okuyucu</title>
+    <style>
+	/* Temel reset ve genel stiller */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding-top: 10px;
+    min-height: 70px;
+    border-bottom: #1c1c1c 3px solid;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header ul {
+    float: right;
+    list-style: none;
+    margin-top: 10px;
+}
+
+header ul li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header h1 {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+#hero {
+    background: #f4f4f4;
+    padding-top: 50px;
+    color: #333;
+    height: 400px;
+    text-align: center;
+}
+
+#hero h2 {
+    margin-bottom: 20px;
+}
+
+#about {
+    padding: 50px 0;
+    text-align: center;
+}
+
+#services {
+    padding: 50px 0;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.service {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border: #ccc 1px solid;
+    border-radius: 10px;
+}
+
+#text-to-speech {
+    padding: 50px 0;
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+	</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sesli yazı okuyucu</h1>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+    <section id="text-to-speech">
+        <div class="container">
+            <h2>Metni Sesli Oku</h2>
+            <textarea id="text-to-read" rows="4" placeholder="Metni buraya yazın..."></textarea>
+            <button onclick="readText()">Metni Oku</button>
+        </div>
+    </section>
+	</section>
+        </div>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 İsa Can</p>
+        </div>
+    </footer>
+
+    <script>
+	function readText() {
+    var text = document.getElementById('text-to-read').value;
+    
+    // Web Speech API kullanarak metni sesli olarak oku
+    var speech = new SpeechSynthesisUtterance();
+    speech.lang = 'tr-TR'; // Dil ayarını kendi dilinize göre değiştirin
+    speech.text = text;
+    
+    speechSynthesis.speak(speech);
+}
+
+	</script>
+</body>
+</html>
